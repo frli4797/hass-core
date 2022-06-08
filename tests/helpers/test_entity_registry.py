@@ -79,6 +79,7 @@ def test_get_or_create_updates_data(registry):
         device_id="mock-dev-id",
         disabled_by=er.RegistryEntryDisabler.HASS,
         entity_category=EntityCategory.CONFIG,
+        modern_name=True,
         original_device_class="mock-device-class",
         original_icon="initial-original_icon",
         original_name="initial-original_name",
@@ -99,6 +100,7 @@ def test_get_or_create_updates_data(registry):
         entity_category=EntityCategory.CONFIG,
         icon=None,
         id=orig_entry.id,
+        modern_name=True,
         name=None,
         original_device_class="mock-device-class",
         original_icon="initial-original_icon",
@@ -119,6 +121,7 @@ def test_get_or_create_updates_data(registry):
         device_id="new-mock-dev-id",
         disabled_by=er.RegistryEntryDisabler.USER,
         entity_category=None,
+        modern_name=False,
         original_device_class="new-mock-device-class",
         original_icon="updated-original_icon",
         original_name="updated-original_name",
@@ -139,6 +142,7 @@ def test_get_or_create_updates_data(registry):
         entity_category=EntityCategory.CONFIG,
         icon=None,
         id=orig_entry.id,
+        modern_name=False,
         name=None,
         original_device_class="new-mock-device-class",
         original_icon="updated-original_icon",
@@ -191,6 +195,7 @@ async def test_loading_saving_data(hass, registry):
         device_id="mock-dev-id",
         disabled_by=er.RegistryEntryDisabler.HASS,
         entity_category=EntityCategory.CONFIG,
+        modern_name=True,
         original_device_class="mock-device-class",
         original_icon="hass:original-icon",
         original_name="Original Name",
@@ -231,6 +236,7 @@ async def test_loading_saving_data(hass, registry):
     assert new_entry2.disabled_by is er.RegistryEntryDisabler.HASS
     assert new_entry2.entity_category == "config"
     assert new_entry2.icon == "hass:user-icon"
+    assert new_entry2.modern_name is True
     assert new_entry2.name == "User Name"
     assert new_entry2.options == {"light": {"minimum_brightness": 20}}
     assert new_entry2.original_device_class == "mock-device-class"
