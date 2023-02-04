@@ -3,7 +3,7 @@
   "name": "Yale Smart Living",
   "documentation": "https://www.home-assistant.io/integrations/yale_smart_alarm",
   "requirements": [
-    "yalesmartalarmclient==0.3.8",
+    "yalesmartalarmclient==0.3.9",
     "retry==0.9.2",
     "types-retry==0.9.7"
   ],
